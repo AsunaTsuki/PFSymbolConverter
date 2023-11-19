@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace PFSymbolConverter
 {
@@ -69,7 +70,7 @@ namespace PFSymbolConverter
             
             ConfigWindow.Dispose();
             
-            this.CommandManager.RemoveHandler("/pfshow");
+            this.CommandManager.RemoveHandler("/symbols");
             this.CommandManager.RemoveHandler("/pfconvert");
 
         }
@@ -132,12 +133,23 @@ namespace PFSymbolConverter
         };
 
 
-            string input = args;
-            // string convertedString = ConvertToSymbols(input, symbolMappings);
-            //string convertedString = ConvertBrackets(input, symbolMappings);
-            string convertedString = ConvertText(input, symbolSquareMappings, symbolCircleMappings);
-            Clipboard.SetText(convertedString);
-            ChatGui.Print(convertedString);
+            if (string.IsNullOrEmpty(args))
+            {
+                ChatGui.Print("How to use PF Symbol Converter");
+                ChatGui.Print("Anything in brackets [] will be converted to symbols.");
+                ChatGui.Print("If you have braces inside the brackets, any numbers will be converted to circle numbers.");
+                ChatGui.Print("Sample command: /pfconvert [hi!] this is a [{123} test]");
+            }
+            else
+            {
+                string input = args;
+                // string convertedString = ConvertToSymbols(input, symbolMappings);
+                //string convertedString = ConvertBrackets(input, symbolMappings);
+                string convertedString = ConvertText(input, symbolSquareMappings, symbolCircleMappings);
+                Clipboard.SetText(convertedString);
+                ChatGui.Print(convertedString);
+            }
+            
         }
 
         static string ConvertText(string input, Dictionary<char, char> defaultMappings, Dictionary<char, char> specialMappings)
