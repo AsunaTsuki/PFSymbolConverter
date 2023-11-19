@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using System;
+using System.Windows.Forms;
 
 namespace PFSymbolConverter
 {
@@ -42,12 +44,9 @@ namespace PFSymbolConverter
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
 
-            // you might normally want to embed resources and load them from the manifest stream
-            var imagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "goat.png");
-            var goatImage = this.PluginInterface.UiBuilder.LoadImage(imagePath);
+            
 
             ConfigWindow = new ConfigWindow(this);
-            MainWindow = new MainWindow(this, goatImage);
             
             WindowSystem.AddWindow(ConfigWindow);
             WindowSystem.AddWindow(MainWindow);
@@ -140,6 +139,7 @@ namespace PFSymbolConverter
             // string convertedString = ConvertToSymbols(input, symbolMappings);
             //string convertedString = ConvertBrackets(input, symbolMappings);
             string convertedString = ConvertText(input, symbolSquareMappings, symbolCircleMappings);
+            Clipboard.SetText(convertedString);
             ChatGui.Print(convertedString);
         }
 
