@@ -50,7 +50,7 @@ namespace PFSymbolConverter
             
             WindowSystem.AddWindow(ConfigWindow);
 
-            this.CommandManager.AddHandler("/pfconvert", new CommandInfo(PFConvert)
+            this.CommandManager.AddHandler("/pfc", new CommandInfo(PFConvert)
                 {
                 HelpMessage = "Converts the text passed to this command to party finder symbols instead"
             });
@@ -71,7 +71,7 @@ namespace PFSymbolConverter
             ConfigWindow.Dispose();
             
             this.CommandManager.RemoveHandler("/symbols");
-            this.CommandManager.RemoveHandler("/pfconvert");
+            this.CommandManager.RemoveHandler("/pfc");
 
         }
 
@@ -138,7 +138,7 @@ namespace PFSymbolConverter
                 ChatGui.Print("How to use PF Symbol Converter");
                 ChatGui.Print("Anything in brackets [] will be converted to symbols.");
                 ChatGui.Print("If you have braces inside the brackets, any numbers will be converted to circle numbers.");
-                ChatGui.Print("Sample command: /pfconvert [hi!] this is a [{123} test]");
+                ChatGui.Print("Sample command: /pfc [hi!] this is a [{123} test]");
             }
             else
             {

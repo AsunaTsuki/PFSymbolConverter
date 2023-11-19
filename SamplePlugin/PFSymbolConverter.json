@@ -2,7 +2,7 @@
     "Author": "Asuna",
     "Name": "PF Symbol Converter",
     "Punchline": "Converts text to symbols mostly for use in making party finders",
-    "Description": "Converts text to symbols mostly for use in making party finders.",
+    "Description": "Converts text to symbols mostly for use in making party finders.\nUse [] around characters you want to be converted.\nYou can also do {} inside the brackets to make numbers appear circular instead of just square version.\nExample: [PGP Cyberpunk Night] Drinks [11pm-3am] EST",
     "InternalName": "PFSymbolConverter",
     "ApplicableVersion": "any",
     "Tags": [
