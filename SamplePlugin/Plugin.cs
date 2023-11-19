@@ -32,7 +32,6 @@ namespace PFSymbolConverter
         public WindowSystem WindowSystem = new("PF Symbol Convert");
 
         private ConfigWindow ConfigWindow { get; init; }
-        private MainWindow MainWindow { get; init; }
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
@@ -49,7 +48,6 @@ namespace PFSymbolConverter
             ConfigWindow = new ConfigWindow(this);
             
             WindowSystem.AddWindow(ConfigWindow);
-            WindowSystem.AddWindow(MainWindow);
 
             this.CommandManager.AddHandler("/pfconvert", new CommandInfo(PFConvert)
                 {
@@ -70,7 +68,6 @@ namespace PFSymbolConverter
             this.WindowSystem.RemoveAllWindows();
             
             ConfigWindow.Dispose();
-            MainWindow.Dispose();
             
             this.CommandManager.RemoveHandler("/pfshow");
             this.CommandManager.RemoveHandler("/pfconvert");
