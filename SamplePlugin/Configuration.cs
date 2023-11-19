@@ -1,8 +1,10 @@
-﻿using Dalamud.Configuration;
+using Dalamud.Configuration;
+using Dalamud.Game.Command;
 using Dalamud.Plugin;
 using System;
+using System.Net.Http;
 
-namespace SamplePlugin
+namespace PFSymbolConverter
 {
     [Serializable]
     public class Configuration : IPluginConfiguration
@@ -18,6 +20,7 @@ namespace SamplePlugin
         public void Initialize(DalamudPluginInterface pluginInterface)
         {
             this.PluginInterface = pluginInterface;
+
         }
 
         public void Save()

@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Numerics;
 using Dalamud.Interface.Internal;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 
-namespace SamplePlugin.Windows;
+namespace PFSymbolConverter.Windows;
 
 public class MainWindow : Window, IDisposable
 {
@@ -45,4 +45,6 @@ public class MainWindow : Window, IDisposable
         ImGui.Image(this.GoatImage.ImGuiHandle, new Vector2(this.GoatImage.Width, this.GoatImage.Height));
         ImGui.Unindent(55);
     }
+
+
 }

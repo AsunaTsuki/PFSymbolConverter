@@ -1,0 +1,12 @@
+{
+    "Author": "Asuna",
+    "Name": "PF Symbol Converter",
+    "Punchline": "Converts text to symbols mostly for use in making party finders",
+    "Description": "Converts text to symbols mostly for use in making party finders.",
+    "InternalName": "PFSymbolConverter",
+    "ApplicableVersion": "any",
+    "Tags": [
+        "partyfinder",
+        "symbols"
+    ]
+}
