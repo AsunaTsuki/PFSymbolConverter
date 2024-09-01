@@ -27,7 +27,7 @@ namespace PFSymbolConverter
         private IChatGui _chatGui;
         [PluginService] private static IChatGui ChatGui { get; set; }  // Use Dalamud's IoC container to get the IChatGui service
 
-        private DalamudPluginInterface PluginInterface { get; init; }
+        private IDalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
         public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("PF Symbol Convert");
@@ -35,8 +35,8 @@ namespace PFSymbolConverter
         private ConfigWindow ConfigWindow { get; init; }
 
         public Plugin(
-            [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] ICommandManager commandManager)
+            IDalamudPluginInterface pluginInterface,
+            ICommandManager commandManager)
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
